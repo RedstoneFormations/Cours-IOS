@@ -941,116 +941,32 @@ Dans le projet TPCombat, on utilise du HTML pour afficher :
 
 ```swift
 import SwiftUI
-import WebKit  // ⚠️ Important : N'oubliez pas d'importer WebKit !
+import WebKit
 
-// Wrapper SwiftUI pour WKWebView - Permet d'utiliser une WebView dans SwiftUI
 struct WebView: UIViewRepresentable {
-    let htmlFileName: String  // Nom du fichier HTML (sans l'extension .html)
-
-    // 1. makeUIView : Créer la WKWebView (appelé UNE fois)
+    let htmlFileName: String  // Sans l'extension .html
+    
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
-        webView.navigationDelegate = context.coordinator  // Lier le delegate
-        return webView
+        WKWebView()
     }
-
-    // 2. updateUIView : Charger le contenu HTML (appelé à chaque mise à jour)
+    
     func updateUIView(_ webView: WKWebView, context: Context) {
-        // Chercher le fichier HTML dans le bundle de l'app
-        guard let htmlPath = Bundle.main.path(forResource: htmlFileName, ofType: "html"),
-              let htmlString = try? String(contentsOfFile: htmlPath, encoding: .utf8) else {
-            // Si le fichier n'existe pas, afficher une erreur
-            let errorHTML = "<html><body><h1>Erreur</h1><p>Impossible de charger le fichier.</p></body></html>"
-            webView.loadHTMLString(errorHTML, baseURL: nil)
-            return
-        }
-
-        // Charger le HTML dans la WebView
-        // baseURL permet de charger des ressources locales (images, CSS externes)
-        webView.loadHTMLString(htmlString, baseURL: Bundle.main.bundleURL)
-    }
-
-    // 3. makeCoordinator : Créer le coordinator pour gérer les événements
-    func makeCoordinator() -> Coordinator {
-        Coordinator()
-    }
-
-    // Coordinator : Gère les événements de navigation (optionnel mais recommandé)
-    class Coordinator: NSObject, WKNavigationDelegate {
-        // Appelé en cas d'erreur de chargement
-        func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-            print("❌ Erreur de chargement : \(error.localizedDescription)")
-        }
-
-        // Appelé quand la page est chargée avec succès
-        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            print("✅ Page chargée avec succès")
+        // Charger le fichier HTML du projet
+        if let path = Bundle.main.path(forResource: htmlFileName, ofType: "html"),
+           let htmlString = try? String(contentsOfFile: path, encoding: .utf8) {
+            webView.loadHTMLString(htmlString, baseURL: nil)
         }
     }
 }
-```
 
-**📝 Points clés à comprendre :**
-
-1. **UIViewRepresentable** : C'est le pont entre UIKit (WKWebView) et SwiftUI
-2. **makeUIView** : Crée la vue UIKit (appelé une seule fois)
-3. **updateUIView** : Met à jour la vue (appelé à chaque changement)
-4. **makeCoordinator** : Crée un objet pour gérer les événements (delegate pattern)
-5. **Bundle.main** : Accède aux fichiers inclus dans votre projet
-
----
-
-### Étape 2 : Utiliser la WebView dans vos écrans
-
-Maintenant qu'on a notre `WebView` réutilisable, on peut l'utiliser dans n'importe quelle vue SwiftUI.
-
-**Exemple : La vue Notice du TPCombat**
-
-```swift
-import SwiftUI
-
+// ✅ Utilisation
 struct NoticeView: View {
-    @Environment(\.dismiss) private var dismiss  // Pour fermer la sheet
-
     var body: some View {
-        NavigationStack {
-            // Utiliser notre WebView avec le fichier "notice.html"
-            WebView(htmlFileName: "notice")
-                .navigationTitle("Notice")
-                .navigationBarTitleDisplayMode(.inline)  // Titre petit en haut
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Fermer") {
-                            dismiss()  // Ferme la sheet
-                        }
-                    }
-                }
-        }
+        WebView(htmlFileName: "notice")  // Charge notice.html
+            .navigationTitle("Notice")
     }
 }
 ```
-
-**Exemple : La vue Aide du TPCombat**
-
-```swift
-struct HelpView: View {
-    var body: some View {
-        WebView(htmlFileName: "help")
-            .navigationBarTitleDisplayMode(.inline)
-    }
-}
-```
-
-**💡 C'est tout !** Vous avez juste besoin de passer le nom du fichier HTML et la WebView fait le reste.
-
-### 📊 Récapitulatif : Quand utiliser HTML dans votre app ?
-
-| Situation            | Solution                       | Exemple du TPCombat        |
-| -------------------- | ------------------------------ | -------------------------- |
-| Page d'aide / Notice | Fichier HTML local + WKWebView | `notice.html`, `help.html` |
-| Article de blog      | HTML depuis API + WKWebView    | -                          |
-| Site web externe     | URL + WKWebView                | Lien vers documentation    |
-| Texte simple formaté | Text + Markdown                | ❌ Pas besoin de HTML      |
 
 ---
 
