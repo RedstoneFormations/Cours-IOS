@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Aide - TP Combat</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+					Arial, sans-serif;
+				line-height: 1.6;
+				padding: 20px;
+				background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+				color: #333;
+			}
+
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				background: white;
+				border-radius: 15px;
+				padding: 30px;
+				box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+			}
+
+			h1 {
+				color: #f5576c;
+				font-size: 2em;
+				margin-bottom: 20px;
+				text-align: center;
+			}
+
+			h2 {
+				color: #f093fb;
+				font-size: 1.5em;
+				margin-top: 25px;
+				margin-bottom: 15px;
+				border-bottom: 2px solid #f5576c;
+				padding-bottom: 5px;
+			}
+
+			h3 {
+				color: #f5576c;
+				font-size: 1.2em;
+				margin-top: 15px;
+				margin-bottom: 10px;
+			}
+
+			p {
+				margin-bottom: 15px;
+				text-align: justify;
+			}
+
+			ul,
+			ol {
+				margin-left: 20px;
+				margin-bottom: 15px;
+			}
+
+			li {
+				margin-bottom: 8px;
+			}
+
+			.highlight {
+				background-color: #fff5f7;
+				padding: 15px;
+				border-radius: 8px;
+				margin: 15px 0;
+				border-left: 4px solid #f5576c;
+			}
+
+			.tip {
+				background-color: #f0f9ff;
+				padding: 15px;
+				border-radius: 8px;
+				margin: 15px 0;
+				border-left: 4px solid #3b82f6;
+			}
+
+			.important {
+				color: #e74c3c;
+				font-weight: bold;
+			}
+
+			.footer {
+				margin-top: 30px;
+				padding-top: 20px;
+				border-top: 1px solid #ddd;
+				text-align: center;
+				color: #666;
+				font-size: 0.9em;
+			}
+
+			code {
+				background-color: #f4f4f4;
+				padding: 2px 6px;
+				border-radius: 3px;
+				font-family: "Courier New", monospace;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>❓ Aide - TP Combat</h1>
+
+			<h2>📋 Guide Rapide</h2>
+			<p>
+				Ce guide vous aidera à maîtriser tous les aspects du jeu et à devenir un
+				stratège accompli dans <strong>TP Combat</strong>.
+			</p>
+
+			<h2>🎯 Objectifs du Jeu</h2>
+			<div class="highlight">
+				<p>Votre mission principale est de :</p>
+				<ul>
+					<li>Constituer une équipe de combattants puissants</li>
+					<li>Vaincre tous les adversaires lors des combats</li>
+					<li>Maximiser votre score en étant stratégique</li>
+					<li>Atteindre le sommet du classement</li>
+				</ul>
+			</div>
+
+			<h2>⚔️ Mécaniques de Combat</h2>
+
+			<h3>Les Actions</h3>
+			<ul>
+				<li>
+					<strong>🗡️ Attaque :</strong> Inflige des dégâts basés sur votre
+					statistique d'attaque moins la défense de l'ennemi
+				</li>
+				<li>
+					<strong>🛡️ Défense :</strong> Augmente temporairement votre défense
+					pour le prochain tour, réduisant les dégâts subis
+				</li>
+				<li>
+					<strong>✨ Compétence :</strong> Déclenche une capacité unique propre
+					à chaque combattant (soins, dégâts de zone, buffs, etc.)
+				</li>
+			</ul>
+
+			<h3>Déroulement d'un Tour</h3>
+			<ol>
+				<li>Sélectionnez votre action (Attaque, Défense ou Compétence)</li>
+				<li>L'action de votre combattant est exécutée</li>
+				<li>L'adversaire effectue son action</li>
+				<li>Les résultats sont affichés dans le journal de combat</li>
+				<li>Passez au tour suivant jusqu'à la victoire ou la défaite</li>
+			</ol>
+
+			<h2>📊 Statistiques des Combattants</h2>
+			<div class="highlight">
+				<p>Chaque combattant possède trois statistiques principales :</p>
+				<ul>
+					<li>
+						<strong>❤️ Points de Vie (HP) :</strong> Quand ils atteignent 0, le
+						combattant est éliminé
+					</li>
+					<li>
+						<strong>⚔️ Attaque (ATK) :</strong> Détermine les dégâts infligés
+						aux ennemis
+					</li>
+					<li>
+						<strong>🛡️ Défense (DEF) :</strong> Réduit les dégâts reçus des
+						attaques ennemies
+					</li>
+				</ul>
+			</div>
+
+			<h2>🏆 Système de Score</h2>
+			<p>Votre score final est calculé selon plusieurs critères :</p>
+			<ul>
+				<li>Nombre d'ennemis vaincus × 100 points</li>
+				<li>Pourcentage de vie restante de votre équipe × 50 points</li>
+				<li>Bonus de rapidité si vous terminez en moins de 10 tours</li>
+				<li>Bonus si vous ne perdez aucun membre de votre équipe</li>
+			</ul>
+
+			<h2>💡 Stratégies et Astuces</h2>
+
+			<div class="tip">
+				<h3>🎯 Conseils pour Débutants</h3>
+				<ul>
+					<li>
+						<strong>Équilibrez votre équipe :</strong> Un mix de combattants
+						offensifs et défensifs
+					</li>
+					<li>
+						<strong>Observez les patterns :</strong> Les ennemis ont des
+						comportements prévisibles
+					</li>
+					<li>
+						<strong>Gérez vos ressources :</strong> N'utilisez pas toutes vos
+						compétences dès le début
+					</li>
+					<li>
+						<strong>Surveillez les HP :</strong> Un combattant blessé peut
+						utiliser la défense pour survivre
+					</li>
+				</ul>
+			</div>
+
+			<div class="tip">
+				<h3>🚀 Tactiques Avancées</h3>
+				<ul>
+					<li>
+						<strong>Focus Fire :</strong> Concentrez vos attaques sur un seul
+						ennemi pour le éliminer rapidement
+					</li>
+					<li>
+						<strong>Timing des compétences :</strong> Gardez vos compétences
+						puissantes pour les moments critiques
+					</li>
+					<li>
+						<strong>Défense anticipée :</strong> Activez la défense quand vous
+						prévoyez une grosse attaque ennemie
+					</li>
+					<li>
+						<strong>Rotation des combattants :</strong> Faites défendre les
+						combattants blessés pendant que les autres attaquent
+					</li>
+				</ul>
+			</div>
+
+			<h2>🔧 Interface et Navigation</h2>
+			<ul>
+				<li>
+					<strong>Menu Principal :</strong> Accès au jeu, classement et aide
+				</li>
+				<li>
+					<strong>Sélection d'équipe :</strong> Choisissez vos combattants avant
+					le combat
+				</li>
+				<li>
+					<strong>Vue de combat :</strong> Gérez les actions et observez le
+					déroulement
+				</li>
+				<li>
+					<strong>Journal de combat :</strong> Historique détaillé de toutes les
+					actions
+				</li>
+				<li>
+					<strong>Classement :</strong> Consultez vos meilleurs scores et
+					comparez-vous
+				</li>
+			</ul>
+
+			<h2>❓ Questions Fréquentes</h2>
+
+			<h3>Comment gagner plus de points ?</h3>
+			<p>
+				Terminez les combats rapidement tout en gardant votre équipe en bonne
+				santé. Les victoires sans pertes donnent un gros bonus !
+			</p>
+
+			<h3>Que faire si je perds souvent ?</h3>
+			<p>
+				Essayez différentes compositions d'équipe et concentrez-vous sur
+				l'apprentissage des patterns ennemis. La défense est votre meilleure
+				amie !
+			</p>
+
+			<h3>Les compétences ont-elles un cooldown ?</h3>
+			<p>
+				Les règles dépendent de l'implémentation, mais généralement vous pouvez
+				utiliser les compétences à chaque tour si nécessaire.
+			</p>
+
+			<div class="highlight">
+				<p class="important">⚡ Astuce Pro :</p>
+				<p>
+					Pour devenir un maître du combat, prenez le temps d'expérimenter avec
+					différentes stratégies. Il n'y a pas qu'une seule façon de gagner !
+				</p>
+			</div>
+
+			<div class="footer">
+				<p>Bon courage dans vos combats ! 🎮</p>
+				<p>© 2025 TP Combat - Guide d'Aide</p>
+			</div>
+		</div>
+	</body>
+</html>
